@@ -17,3 +17,9 @@ module Fold
 
 	map'' :: (a -> b) -> [a] -> [b]
 	map'' f xs = foldl (\acc x -> acc ++ [f x]) [] xs
+
+	maximum' :: (Ord a) => [a] -> a
+	maximum' x = foldl1 (\acc y -> if y > acc then y else acc) x
+
+	reverse' :: [a] -> [a]
+	reverse' x = foldl (\acc y -> y : acc) [] x
